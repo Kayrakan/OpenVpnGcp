@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%  if not current_user.is_authenticated %}
+<h1 class="title">
+  Welcome, please authenticate on GCP. Click the button.
+</h1>
+<a href="{{ url_for('googleoauth.authorize') }}" class="navbar-item">
+    Home
+</a>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+<h1 class="title">
+  Click the button to initiate a project on GCP
+</h1>
+<a href="{{ url_for('vpn') }}" class="subtitle">
+
+    Initiate Project
+</a>
+<br>
+<h2 class="subtitle">
+  Initiate instance
+</h2>
+
+{% endif %}
+{% endblock %}
