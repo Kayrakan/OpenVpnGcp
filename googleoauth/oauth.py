@@ -93,32 +93,7 @@ def test_resources():
         **flask.session['credentials'])
 
 
-    # resourceManage = googleapiclient.discovery.build('cloudresourcemanager', 'v3', credentials=credentials)
-    # print('list')
-    # result = resourceManage.projects().create(
-    #     body={
-    #         'project_id': 'example-project1234',
-    #     }
-    # ).execute()
-    print("TESTING RESOURCE")
-    # resourceManage = googleapiclient.discovery.build('cloudresourcemanager', 'v3', credentials=credentials)
-
-    # client = resourcemanager_v3.ProjectsClient()
-    # print("TESTING REQUEST")
-    #
-    # request = resourcemanager_v3.ListProjectsRequest(
-    #     parent= 'projects/750325132631'
-    # )
-    # print("TESTING PAGE")
-    #
-    # page_result = client.list_projects(request=request)
-    #
-    # print('RESOURCE LIST SS')
-    # print(page_result)
-    # for response in page_result:
-    #     print(response)
-
-    projectId = 'personal-340011'
+    projectId = 'personal-340011' #for testing... will be removed.
 
     resourceManage = googleapiclient.discovery.build('cloudresourcemanager', 'v3', credentials=credentials)
     project = resourceManage.projects().get(name="projects/" + projectId).execute()

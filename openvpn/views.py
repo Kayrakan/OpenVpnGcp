@@ -42,7 +42,6 @@ def vpn(desired_project_id = 'example-project-id-123'):
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     job = q.enqueue(initiate_vpn, credentials , desired_project_id)
 
@@ -56,12 +55,10 @@ def project():
     if 'credentials' not in flask.session:
         return flask.redirect('oauth.authorize')
 
-    print(flask.session['credentials'])
 
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     get_project(credentials)
     create_instance(credentials)
@@ -73,12 +70,10 @@ def reserve_ip():
     if 'credentials' not in flask.session:
         return flask.redirect('oauth.authorize')
 
-    print(flask.session['credentials'])
 
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     reserve_static_ip(credentials)
     return "One ip is reserved"
@@ -89,12 +84,10 @@ def get_reversed_ip():
     if 'credentials' not in flask.session:
         return flask.redirect('oauth.authorize')
 
-    print(flask.session['credentials'])
 
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     get_reserved_ip(credentials)
     return "got reserved ip"
@@ -105,12 +98,10 @@ def list_reserved_ips():
     if 'credentials' not in flask.session:
         return flask.redirect('oauth.authorize')
 
-    print(flask.session['credentials'])
 
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     list_reserveds(credentials)
     return "got reserved ip"
@@ -121,12 +112,10 @@ def insert_firewallrule():
     if 'credentials' not in flask.session:
         return flask.redirect('oauth.authorize')
 
-    print(flask.session['credentials'])
 
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    print(credentials)
 
     insert_firewall_rule(credentials)
     return "firewall rule inserted"

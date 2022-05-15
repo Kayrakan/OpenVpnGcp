@@ -17,11 +17,9 @@ def login():
 def login_post():
     # login code goes here
     # login code goes here
-    print('logged in')
     email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
-    print(User.query.all())
     user = User.query.filter_by(email=email).first()
 
     # check if the user actually exists
@@ -42,9 +40,7 @@ def signup():
 @user_management.route('/signup', methods=['POST'])
 def signup_post():
     # code to validate and add user to database goes here
-    print('requested')
-    print(request.data)
-    print(request.form.get('email'))
+
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -57,7 +53,6 @@ def signup_post():
 
     # create a new user with the form data. Hash the password so the plaintext version isn't saved.
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
-    print('saving')
 
     # add the new user to the database
     db.session.add(new_user)
